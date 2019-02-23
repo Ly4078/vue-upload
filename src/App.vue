@@ -36,9 +36,9 @@ export default {
      //用户登录
     login() {
       let _this = this;
-      // this.$GLOBAL.API+"  <==>  "/api/
+      // this.$GLOBAL.API+"  <==>  this.$GLOBAL.API+"
       this.$axios
-        .post("/api/webApprove/auth/login?userName=13971489895")
+        .post(this.$GLOBAL.API+"webApprove/auth/login?userName=13971489895")
         .then(res => {
           _this.token ="Bearer "+res.data.data;
           let _token="Bearer "+res.data.data;

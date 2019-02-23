@@ -64,7 +64,7 @@ export default {
       }
       _value = _value.substring(0, _value.length - 1);
       console.log("_value:", _value);
-      let _Url = "/api/lottery/history?" + _value;
+      let _Url = this.$GLOBAL.API+"lottery/history?" + _value;
       _Url = encodeURI(_Url);
       console.log("_Url3213:", _Url);
       this.$axios({

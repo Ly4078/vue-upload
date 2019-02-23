@@ -146,7 +146,7 @@ export default {
         _value += key + "=" + dataObj[key] + "&";
       }
       _value = _value.substring(0, _value.length - 1);
-      let _Url = "/api/app/salePoint/listNew?" + _value;
+      let _Url = this.$GLOBAL.API+"app/salePoint/listNew?" + _value;
       
       _Url = encodeURI(_Url);
       this.$axios({
@@ -171,7 +171,7 @@ export default {
       const _this = this;
       _this.userList = [];
       this.$axios({
-        url: "/api/salePoint/selectSalepintList?salepointId=" + this.radio,
+        url: this.$GLOBAL.API+"salePoint/selectSalepintList?salepointId=" + this.radio,
         headers: {
           Authorization: sessionStorage.getItem("_TOKEN")
         }
@@ -218,7 +218,7 @@ export default {
       }
       _value = _value.substring(0, _value.length - 1);
       this.$axios({
-        url: "/api/salePoint/addSalePointUser?" + _value,
+        url: this.$GLOBAL.API+"salePoint/addSalePointUser?" + _value,
         method: "post",
         headers: {
           Authorization: sessionStorage.getItem("_TOKEN")
@@ -238,7 +238,7 @@ export default {
     deleteuser(val) {
       let _this = this;
       this.$axios({
-        url: "/api/salePoint/deleteSalepintUser?id=" + val,
+        url: this.$GLOBAL.API+"salePoint/deleteSalepintUser?id=" + val,
         method: "post",
         headers: {
           Authorization: sessionStorage.getItem("_TOKEN")
@@ -255,7 +255,7 @@ export default {
     getcommodity() {
       this.$axios({
         url:
-          "/api/app/salePoint/getGoodsListBySalePointIdNew?sendType=2&rows=" +
+          this.$GLOBAL.API+"app/salePoint/getGoodsListBySalePointIdNew?sendType=2&rows=" +
           this.Arows +
           "&id=" +
           this.radio +
@@ -297,7 +297,7 @@ export default {
       const _this = this;
       this.$axios({
         url:
-          "/api/app/salePoint/deleteGoodsSkuBySalePointId?id=" +
+          this.$GLOBAL.API+"app/salePoint/deleteGoodsSkuBySalePointId?id=" +
           this.radio +
           "&goodsSkuId=" +
           _id,

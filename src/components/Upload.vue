@@ -737,10 +737,10 @@ export default {
       let _Url = "";
       if (this.ActIds == "xsd") {
         delete this.formObj.actGoodsSkuInVos;
-        _Url = "/api/app/goodsSku/addPlatformGoodsSkuAndSalePoint";
+        _Url = this.$GLOBAL.API+"app/goodsSku/addPlatformGoodsSkuAndSalePoint";
       } else {
         delete this.formObj.salePointInVo;
-        _Url = "/api/app/goodsSku/addPlatformGoodsSkuAndAct";
+        _Url = this.$GLOBAL.API+"app/goodsSku/addPlatformGoodsSkuAndAct";
       }
       this.$axios({
         method: "post",
@@ -784,7 +784,7 @@ export default {
         _value += key + "=" + dataObj[key] + "&";
       }
       _value = _value.substring(0, _value.length - 1);
-      let _Url = "/api/app/salePoint/listNew?" + _value;
+      let _Url = this.$GLOBAL.API+"app/salePoint/listNew?" + _value;
       _Url = encodeURI(_Url);
       this.$axios({
         url: _Url,
@@ -816,7 +816,7 @@ export default {
         form.append("file", file);
         form.append("userName", "13971489895");
         this.$axios
-          .post("/api/img/uploadMp4", form, {
+          .post(this.$GLOBAL.API+"img/uploadMp4", form, {
             headers: {
               Authorization: sessionStorage.getItem("_TOKEN")
             }
@@ -844,7 +844,7 @@ export default {
         form.append("file", file);
         form.append("userName", "13971489895");
         this.$axios
-          .post("/api/img/uploadMp4", form, {
+          .post(this.$GLOBAL.API+"img/uploadMp4", form, {
             headers: {
               Authorization: sessionStorage.getItem("_TOKEN")
             }
@@ -877,7 +877,7 @@ export default {
         form.append("file", file);
         form.append("userName", "13971489895");
         this.$axios
-          .post("/api/img/uploadMp4", form, {
+          .post(this.$GLOBAL.API+"img/uploadMp4", form, {
             headers: {
               Authorization: essionStsorage.getItem("_TOKEN")
             }
@@ -901,7 +901,7 @@ export default {
     deliveryTemplateShop() {
       let _this = this;
       this.$axios
-        .get("/api/app/deliveryTemplateShop/list?shopId=0&page=1&rows=100", {
+        .get(this.$GLOBAL.API+"app/deliveryTemplateShop/list?shopId=0&page=1&rows=100", {
           headers: {
             Authorization: sessionStorage.getItem("_TOKEN")
           }
@@ -936,7 +936,7 @@ export default {
     // 商品类目
     goodsCategory() {
       this.$axios
-        .get("/api/goodsCategory/list", {
+        .get(this.$GLOBAL.API+"goodsCategory/list", {
           headers: {
             Authorization: sessionStorage.getItem("_TOKEN")
           }
