@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <!-- <el-button type="success" plain @click="toflag">切换模式</el-button>
-    <Upload v-if="isflag"/>
-    <addhx v-if="!isflag"/> -->
-   <Fengxi></Fengxi>
+    <el-button type="success" v-for="item in pageTypeList" :key="item.id" plain @click="switchPage(item.id)">{{item.name}}</el-button>
+    <xiangqiversion v-if="pageType==1"></xiangqiversion>
+    <Upload v-if="pageType==2"/>
+    <addhx v-if="pageType==3"/>
+    
+   <!-- <Fengxi></Fengxi> -->
   </div>
 </template>
 
@@ -13,10 +15,14 @@ import Upload from './components/Upload.vue'
 import addhx from './components/addhx.vue'
 import About from './views/About.vue'
 import Fengxi from './components/fenxi'
+import xiangqiversion from './components/xiangqiversion.vue'
 export default {
   name: 'app',
   data(){
     return{
+      pageTypeList:[{name:'小程序配置',id:1},
+      {name:'商品上传',id:2},{name:'核销员配置',id:3}],
+      pageType:'2',
       isflag:true,
       token:""
     }
@@ -26,11 +32,15 @@ export default {
     Upload,
     About,
     addhx,
-    Fengxi
+    Fengxi,
+    xiangqiversion
   },
   methods:{
-    toflag(){
-      this.isflag=!this.isflag;
+    switchPage(e){
+      if(e == this.pageType){
+        return false
+      }
+      this.pageType = e;
       this.login(); 
     },
      //用户登录
@@ -38,7 +48,7 @@ export default {
       let _this = this;
       // this.$GLOBAL.API+"  <==>  this.$GLOBAL.API+"
       this.$axios
-        .post(this.$GLOBAL.API+"webApprove/auth/login?userName=13971489895")
+        .post( this.$GLOBAL.API+"webApprove/auth/login?userName=13971489895")
         .then(res => {
           _this.token ="Bearer "+res.data.data;
           let _token="Bearer "+res.data.data;

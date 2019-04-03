@@ -1,0 +1,23 @@
+<template name="commentItem">
+  <view class='evaluate-maximum'>
+    <view class='evaluate_l'>
+      <image wx:if="{{item.userPic}}" class='evaluateImages'  mode="aspectFill" src='{{item.userPic}}'></image>
+      <image wx:else class='evaluateImages' mode="aspectFill" src='https://xq-1256079679.file.myqcloud.com/test_图层 24_0.8.jpg'></image>
+    </view>
+    <view class="evaluate_r">
+      <view class="evaluate_r_top">
+        <view class='evaluateText'>{{item.nickName == 'null'?item.userName:item.nickName}}</view>
+        <view wx:if="{{item.isZan == 0}}" bindtap="toLike" id="{{item.id}}">
+          <text class='evaluaterightTx'>{{item.zan}}</text>
+          <image class='evaluateright' src='/images/icon/zanGray.png'></image>
+        </view>
+        <view wx:else bindtap="cancelLike" id="{{item.id}}">
+          <text class='evaluaterightTx'>{{item.zan}}</text>
+          <image class='evaluateright' src="/images/icon/zanNew.png"></image>
+        </view>
+      </view>
+      <view class='evaluate_r_cont'>{{item.content}}</view>
+      <view class='carry-out-data'>{{item.createTime}}</view>
+    </view>
+  </view>
+</template>

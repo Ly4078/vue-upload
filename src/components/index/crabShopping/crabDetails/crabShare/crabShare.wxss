@@ -1,0 +1,17 @@
+@import "../../../bargainirg-store/AprogressBar/AprogressBar.wxss";
+
+.cuisineRight-text text {
+  display: block;
+  width: 320rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.friendBargain {
+  margin-bottom: 50rpx;
+}
+
+.invitation-share-s {
+  margin-top: 20rpx;
+}

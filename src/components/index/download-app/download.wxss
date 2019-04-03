@@ -1,0 +1,56 @@
+ .downbox{
+  width: 100%;
+  height: 3529rpx;
+  overflow: hidden;
+  background: #fff;
+   position: relative
+}
+.deimg{
+  width: 100%;
+  height: 100%;
+}
+.deimgid1{
+  width: 100%;
+  height: 98%;
+}
+.handxz{
+ width:100%;
+  height:104rpx;
+  z-index:2;
+  position:fixed;
+  left:0;
+  bottom:57rpx;
+}
+.copycon{
+  z-index: 5;
+  width: 694rpx;
+  padding: 0 28rpx;
+  height: 100rpx;
+  position: relative;
+  top:-93rpx;
+  right:-517rpx;
+}
+.erweima{
+  position: relative;
+  width: 300rpx;
+  height: 300rpx;
+  z-index: 6;
+  top:-902rpx;
+  left:224rpx;
+}
+.tishiinfo{
+  position: relative;
+  top:-912rpx;
+  left:-130rpx;
+  font-size:25rpx;
+}
+
+.copycon button{
+  float: left;
+  height: 50rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  padding: 5rpx 10rpx;
+  background: #fc5e2d;
+  color: #fff;
+} 

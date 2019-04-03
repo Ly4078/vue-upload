@@ -1,0 +1,72 @@
+<import src="../../../../../utils/wxParse/wxParse.wxml" />
+<view class='modal_box  modal_box11' wx:if="{{isshowlocation}}">
+  <view class='weizhi'>
+    更多体验需要你授权位置信息
+    <button bindtap="openSetting">确定</button>
+  </view>
+</view>
+<view class="storeOrder">
+  <image class="indexIcon" src="/images/icon/goindex.png" bindtap='toIndex' wx:if="{{isShare}}"></image>
+  <view class="storeOrder_top">
+    <swiper indicator-dots indicator-active-color="#FC6232" style="width:100%;height:750rpx;background:#fff;">
+      <swiper-item wx:key="index" wx:for="{{attachments}}">
+        <image class='detailsImag' catchtap='seebigImg' data-img="{{item.picUrl}}" mode='aspectFill' wx:if="{{item.picUrl}}" src='{{item.picUrl}}'></image>
+        <image class='detailsImag' mode='aspectFill' wx:else src='/images/icon/morentu.png'></image>
+      </swiper-item>
+    </swiper>
+    <view class="crabBox">
+      <view class="crabName">{{skuName}}</view>
+      <view class="calculate">
+        <view class="calculate_l">
+          <!-- <view class="sellNum">已售{{sellNum}}</view> -->
+          <text class="discountPrice">￥{{sellPrice}}</text>
+          <text wx:if="{{marketPrice > 0}}" class="marketPrice">￥{{marketPrice}}</text>
+          <!-- <text class="originalPrice">￥{{marketPrice}}</text> -->
+        </view>
+        <view class="calculate_r">
+          <image bindtap='minus' src="/images/icon/subtract.png"></image>
+          <text>{{num}}</text>
+          <image bindtap='add' src="/images/icon/addNum.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='embedded' wx:if="{{article}}">
+    <!-- 商品详情 -->
+    <view class='specialWrap'>
+      <view class='special'></view>
+      <text>商品详情</text>
+    </view>
+    <view class='parewx' hidden="{{!isopenimg}}">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <view class='dishtext' hidden="{{isopenimg}}" wx:if="{{pattern}}">
+    </view>
+    <view class='dishImg'>
+      <view class='openImg' bindtap='clickopen'>{{isopenimg?'收起图文详情':'查看图文详情'}}</view>
+    </view>
+  </view>
+
+  <view class="description">
+    <view class="descri_header">使用须知</view>
+    <view class="descri_item">
+      <text class="descri_cont">兑换券有限期——自购买之日起到2月19号（正月十五）结束</text>
+    </view>
+    <view class="descri_header">使用规则</view>
+    <view class="descri_item">
+      <text class="descri_cont">1.购买后在券包--我的票券--立即使用--门店兑换
+2.所有消费者购买后均不兑现、不找零
+3.所有券仅限在手机微信支付款后使用
+4.若用户因个人原因错过兑换有效期，门店将不再兑换且不允许退款
+5.享7平台拥有最终解释权</text>
+    </view>
+  </view>
+
+  <view class='storeOrder_bbj'></view>
+  <view class="storeOrder_b">
+    <view class="orderNum">共{{num}}件商品</view>
+    <view class="orderPrice">￥{{orderPrice}}</view>
+    <view class="orderBtn" bindtap='toBuy'>去结算</view>
+  </view>
+</view>

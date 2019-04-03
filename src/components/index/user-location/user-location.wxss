@@ -1,0 +1,41 @@
+
+
+page{
+  background: #ffffff;
+}
+.title{
+  width: 100%;
+  font-size: 28rpx;
+  color:#969696FF;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.cityBox {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rpx 20rpx;
+}
+.cityBox .cityItem{
+  width: 220rpx;
+  height: 256.5rpx;
+  line-height: 260rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color:#333333;
+  margin: 18rpx 25rpx 0 0;
+  background: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+.cityBox .cityItem:nth-child(3n){
+  margin-right: 0rpx;
+}
+.cityBox .cityItem image{
+  position: absolute;
+  left: 0;
+  top:0;
+   width: 220rpx;
+  height: 256.5rpx;
+  z-index: 9;
+}

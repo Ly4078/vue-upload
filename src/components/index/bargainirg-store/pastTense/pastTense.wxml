@@ -1,0 +1,77 @@
+<import src="../bargainirg-template/bargainirg-template.wxml" />
+<!-- 骨架屏模块 -->
+<skeleton selector="skeleton" loading="spin" bgcolor="#FFF" wx:if="{{showSkeleton}}"></skeleton>
+
+<view>
+  <block wx:for="{{bargainList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{index}}">
+    <view class='previously' id="{{item.skuId}}" data-groupid="{{item.groupId}}" data-skuType="{{item.skuType}}" data-categoryId="{{item.goodsSkuOut.categoryId}}" bindtap='bargainDetail'>
+      <view class="hot-recoItem-left">
+        <image src="{{item.picUrl?item.picUrl:item.goodsSkuOut.skuPic}}"></image>
+      </view>
+      <view class='preRight'>
+        <view class='preRitTop'>
+          <view class='pre-rigtTop-name'>
+            <text>{{item.skuName?item.skuName:item.goodsSkuOut.skuName}}</text>
+          </view>
+        </view>
+        <!--倒计时  -->
+        <view wx:if="{{timeArr[idx].countDown}}" class="countDownTimeView">
+          <view class="voteText">{{timeArr[idx].countDown}}</view>
+          <text>后结束</text>
+        </view>
+        <view wx:else class="countDownTimeView">
+          <text>砍价已结束</text>
+        </view>
+        <!-- 已砍价 已减价格 -->
+        <view class='alreadyWrap'>
+          <view class='already'>
+            <text>{{item.peoplenum*1-1}}</text>人已砍</view>，
+          <view class='already'>已减
+            <text>{{item.subtract}}</text>元</view>
+        </view>
+        <view class='depend'>
+          <view class='dependLeft'>
+            <text class='dependText'>￥{{item.skuMoneyNow}}</text>
+            <view>原价￥
+              <text>{{item.skuMoneyOut}}</text>
+            </view>
+          </view>
+          <button id="{{item.skuId}}">立即购买</button>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{bargainList.length<1}}" class='md_placeholder'>
+    <image src="/images/icon/empty.png"></image>
+    <view class="emptyTxt">空空如也</view>
+    <view class="emptyBtn" bindtap='toindex'>去逛逛</view>
+  </view>
+</view>
+
+
+<!-- 精选推荐 -->
+<view wx:if="{{dishList.length>0}}">
+  <view class='selectionIo'>
+    <image class='selectionIoImg' src='/images/icon/sevenribbon.png'></image>
+    <text>精选推荐</text>
+    <image class='selectionIoImg ImgRight' src='/images/icon/sevenribbon.png'></image>
+  </view>
+  <view class="tipList">
+    <view class='cutCuisine'>
+      <block wx:for="{{dishList}}" wx:key="{{index}}" id="{{index}}" wx:for-index="idx">
+        <template is="cuisine" data="{{item}}" />
+      </block>
+    </view>
+  </view>
+</view>
+
+
+<!-- loading -->
+<view>
+  <view class='loadingBox'>
+  <image wx:if="{{istruenodata}}" src="/images/icon/bottomnodata.png" style="width:304rpx;height:64rpx;"></image>
+    <i-spin custom wx:if="{{loading}}">
+      <image style='width:100rpx;height:100rpx;' src="/images/icon/bottom_loading.gif"></image>
+    </i-spin>
+  </view>
+</view>

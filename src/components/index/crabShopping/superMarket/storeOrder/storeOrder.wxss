@@ -1,0 +1,220 @@
+.storeOrder {
+  background-color: #F5F5FA;
+  width: 100%;
+  height: 100%;
+}
+
+.storeOrder_top {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.crabIcon {
+  width: 100%;
+  height: 750rpx;
+}
+
+.crabBox {
+  width: 100%;
+  padding: 20rpx 44rpx 20rpx 32rpx;
+  box-sizing: border-box;
+  border-top: 2rpx solid #EBEBEB;
+}
+
+.crabName {
+  color: #191919;
+  font-size: 30rpx;
+}
+
+.calculate {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.calculate_l {
+  color: #808080;
+  font-size: 24rpx;
+}
+
+.sellNum {
+  font-size: 20rpx;
+  margin: 20rpx 0 10rpx 0;
+}
+
+.discountPrice {
+  color: #FF4343;
+  font-size: 36rpx;
+}
+
+.originalPrice {
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+
+.calculate_r {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.calculate_r image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.calculate_r text {
+  color: #191919;
+  width: 60rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.description {
+  background-color: #fff;
+  color: #191919;
+  font-size: 28rpx;
+  padding: 0 42rpx 90rpx 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+.descri_header {
+  padding: 30rpx 0 28rpx 0;
+  font-size: 30rpx;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.descri_item {
+  padding-bottom: 26rpx;
+  line-height: 34rpx;
+}
+
+.descri_tit {
+  font-weight: 600;
+}
+
+.descri_cont {
+  color: #808080;
+}
+.storeOrder_bbj{
+   width: 100%;
+  height: 90rpx;
+}
+.storeOrder_b {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-top: 2rpx solid #EBEBEB;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.orderNum {
+  color: #191919;
+  font-size: 24rpx;
+}
+
+.orderPrice {
+  font-size: 36rpx;
+  color: #FC5E2D;
+  padding: 0 30rpx 0 20rpx;
+}
+
+.orderBtn {
+  width: 244rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background-color: #FC5E2D;
+  text-align: center;
+}
+.imgUlrs{
+  width:750rpx;
+  height:auto;
+  display: block;
+}
+
+.instruction {
+  width: 100%;
+  height: 325rpx;
+  margin-bottom: 10rpx;
+}
+
+.indexIcon {
+  position: fixed;
+  right: 20rpx;
+  bottom: 120rpx;
+  z-index: 1000;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.specialWrap {
+  height:80rpx;
+  display:flex;
+  padding:0 28rpx;
+  align-items:center;
+  background:#fff;
+  position:relative;
+}
+
+.special {
+  width: 6rpx;
+  height:26rpx;
+  background-color:#FC5F2F;
+  display:inline-block;
+}
+
+.specialWrap text {
+  font-family:PingFangSC-Regular;
+  color:rgba(25,25,25,1);
+  padding-left:16rpx;
+  background:#fff;
+}
+.wxParse-p {
+  padding:14px;
+  color:#191919;
+  font-size:30rpx;
+  background:#F5F5FA;
+}
+.dishImg,.dishtext {
+  padding:28rpx;
+  color:#191919;
+  font-size:28rpx;
+  background:#fff;
+}
+.openImg {
+  width:196rpx;
+  height:56rpx;
+  border-radius:56rpx;
+  border:1rpx solid #969696;
+  color:#969696;
+  text-align:center;
+  line-height:56rpx;
+  font-size:24rpx;
+  margin:0 auto;
+}
+.detailsImag {
+  width:100%;
+  height:750rpx;
+}
+
+.parewx image {
+  width:100%!important;
+  display:block;
+}
+
+.marketPrice {
+  text-decoration: line-through;
+  padding-left: 10rpx;
+}

@@ -1,0 +1,119 @@
+
+<!--顶部导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<view class='modal_box' wx:if="{{isshowlocation}}">
+  <view class='weizhi'>
+    更多体验需要你授权位置信息
+    <button bindtap="openSetting">确定</button>
+  </view>
+</view>
+
+<!--平台邮购-->
+<view class="crabListBox" hidden="{{currentTab==1 || currentTab==2}}">
+  <view class='tabone'>
+    <view wx:for="{{oneTab}}" wx:key="index" id='{{index}}' class="onetab {{tabId==index ? 'actonetab' : ''}}" bindtap="handonetab">{{item}}</view>
+  </view>
+  <view class='crabWrap'>
+    <view class='crabCenter'>
+      <view class='crabSingle' wx:if="{{listData.length>0}}" wx:for="{{listData}}" wx:key="item.id">
+        <view catchtap='crabPrticulars' id='{{item.id}}' data-spuId="{{item.spuId}}">
+          <image wx:if="{{item.skuPic}}" class='crabImg' mode='scaleToFill' src='{{item.skuPic}}'></image>
+          <image wx:else class='crabImg' mode='scaleToFill' src='/images/icon/morentu.png'></image>
+          <view class='crabWrapText'>
+            <view class='crabName'>
+              <text>{{item.skuName}}</text>
+            </view>
+            <view class='crabProduct originalCrabpis'>
+              <text>新品</text>
+              <text class='originalCrab'>原价:￥{{item.marketPrice}}</text>
+            </view>
+            <view class='crabPrice'>
+              <view class='crabPriceleft'>
+                <text>￥{{item.sellPrice}}</text>
+                <text wx:if="{{item.unit != '张'}}">/{{item.unit}}</text>
+              </view>
+              <!-- <view class='crabPriceright'>已售
+                <text>{{item.sellNum}}</text>
+              </view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='placeholder' wx:if="{{listData.length<1}}">
+        <image src="/images/icon/zhanweitu.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--到店消费-->
+<view class="crabListBox" hidden="{{currentTab==0 || currentTab==2}}">
+  <image class='storeImg' src='{{dshImg}}'></image>
+  <view class='storeWrapCrad'>
+    <view class='storStyle'>
+      <view class='storPprofileWrap' wx:if="{{storeData.length>0}}" wx:for="{{storeData}}" wx:for-item="item" wx:for-index="idx" wx:key="{{index}}" catchtap='crabBargainirg' id='{{item.id}}' data-id="{{item.skuForTscOuts[0].id}}">
+          <view class='bullfrog'>
+            <view class='storShade-left'>
+              <image wx:if="{{item.logoUrl}}" class='storShade-leftHead' bindscrolltolower="loadMore" lazy-load='true' src='{{item.logoUrl}}'></image>
+              <image wx:else class='storShade-leftHead' src='/images/icon/morentu.png'></image>
+              <view class="storsNmae_Text {{item.ruleDescs.length>0? 'storsNmae_Text1' : 'storsNmae_Text2'}}" >
+                <view class='storsNmae'>
+                  <text>{{item.shopName}}</text>
+                </view>
+                <view class='cutOutCooking'>
+                  <image class='storLocation' src='/images/icon/hot.png'></image>
+                  <text class='storLocationText'>{{item.popNum}}</text>
+                  <text class='storCooking'>{{item.businessCate}}</text>
+                </view>
+                <view class='storsDishesWrap'>
+                  <text class='storsDishes'>{{item.skuName}}</text>
+                </view>
+                <view class='cutOutCooking' wx:if="{{item.ruleDescs.length>0}}">
+                  <image class='storLocation' src='/images/icon/restaurant_ticket.png'></image>
+                  <text class='storLocationText'>{{item.ruleDescs}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='storShade-right'>
+              <button>{{item.distance}}</button>
+            </view>
+          </view>
+      </view>
+      <view class='placeholder' wx:if="{{storeData.length<1}}">
+        <image src="/images/icon/zhanweitu.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 到店自提 -->
+<view class="storeList" hidden="{{currentTab==0 || currentTab==1}}">
+  <view wx:if="{{marketList.length>0}}" wx:for="{{marketList}}" wx:for-item="item" wx:for-index="idx" wx:key="{{index}}" class="store_item" id="{{item.id}}" data-distance="{{item.distance}}" bindtap="toStoreDetail">
+    <view class="storeIcon">
+      <image wx:if="{{item.logoUrl}}" mode='aspectFill' src='{{item.logoUrl}}'></image>
+      <image wx:else mode='aspectFill' src='/images/icon/morentu.png'></image>
+    </view>
+    <view class="storeInfo">
+      <view class="storeInfo_t">
+        <view class="salepointName">{{item.salepointName}}</view>
+        <view class="gray">{{item.distance}}</view>
+      </view>
+      <view class="storeInfo_b gray">{{item.address}}</view>
+    </view>
+  </view>
+  <view class='placeholder' wx:if="{{marketList.length<1}}">
+    <image src="/images/icon/zhanweitu.png"></image>
+  </view>
+
+</view>
+<view>
+<view class='loadingBox'>
+<i-spin custom wx:if="{{loading}}">
+<!-- <view class="loading"></view> -->
+<image style='width:100rpx;height:100rpx;' src="/images/icon/bottom_loading.gif"></image>
+</i-spin>
+</view>
+</view>

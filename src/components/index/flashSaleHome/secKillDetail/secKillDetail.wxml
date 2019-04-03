@@ -1,0 +1,158 @@
+<import src="../../../../utils/wxParse/wxParse.wxml" />
+<view class="newUserModal" wx:if="{{issnap && isnew}}">
+  <view class='drawer_screen'>
+    <view class='sqtishi'>提示</view>
+    <view class='drphnumber'>注册登录后可以体验更多</view>
+    <button class='gettel sqgettel' bindtap='closetel' id='1'>确定</button>
+    <button class='gettel colosetel' bindtap='closetel' id='2'>取消</button>
+  </view>
+</view>
+
+<view class='shell'>
+<swiper indicator-dots indicator-active-color="#FC6232"  style="width:100%;height:650rpx;background:#fff;">
+    <swiper-item wx:key="index" wx:for="{{soData.attachments}}">
+    <!-- <image class='detailsImag' mode='scaleToFill' src='{{picUrl}}'></image> -->
+      <image class='detailsImag' catchtap='seebigImg' data-img="{{item.picUrl}}" mode='aspectFill' wx:if="{{item.picUrl}}" src='{{item.picUrl}}'></image>
+      <image class='detailsImag' mode='aspectFill' wx:else src='/images/icon/morentu.png'></image>
+    </swiper-item>
+  </swiper>
+  
+  <view class='information'>
+    <view class='information-inner'>
+      <view class='shopsTop'>
+        <text class='shopsTopLeft'>{{skuName}}</text>
+        <!-- <view class='shopsTopRight'>当日仅售
+        <text>15</text>份</view> -->
+      </view>
+      <view class='shopsTop shopssecond'>
+        <view class='shopsConter'>
+          <text class='lowValue'>{{agioPrice}}</text>
+          <view class='shopscCurrency'>元
+          </view>
+          <text class='abandon'>￥{{sellPrice}}</text>
+        </view>
+      </view>
+      <view class='kanj' bindtap='understand'>
+        <view class='kjicon'>1元购</view>
+        邀请2个新用户注册1元钱购买
+        <image src='/images/icon/home_arrow.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 主体 -->
+  <view class='theFollowing'>
+    <view class='embedded'>
+      <!-- 邀请好友 -->
+      <view class="inviteBox">
+        <view class='inviteWrap'>
+          <view class='special'></view>
+          <text>邀请好友</text>
+        </view>
+        <view class="countDown" wx:if="{{!isEnd}}">
+          <view>还剩</view>
+          <view class="countDownNum">{{countDown}}</view>
+          <view>结束</view>
+        </view>
+      </view>
+      <view class="inviteFriend">
+        <view wx:if="{{newList.length > 0}}" class="inviteFriend_l">
+          <image wx:for="{{newList}}" wx:key="index" src="{{item.iconUrl}}"></image>
+          <image wx:if="{{newList.length == 1}}" src="/images/icon/invite.png"></image>
+        </view>
+        <view wx:if="{{newList.length <= 0}}" class="inviteFriend_l">
+          <image src="/images/icon/invite.png"></image>
+          <image src="/images/icon/invite.png"></image>
+        </view>
+        <view class="inviteFriend_r">
+          <button wx:if="{{stockNum > 0}}" plain="true" data-name="shareBtn" open-type="share" bindtap='inviteOthers'>{{btnTxt}}</button>
+          <button wx:else bindtap='inviteOthers'>{{btnTxt}}</button>
+        </view>
+      </view>
+
+      <!-- 商品详情start -->
+      <view class='specialWrap' wx:if="{{article || pattern}}">
+        <view class='special'></view>
+        <text>商品详情</text>
+      </view>
+      <view class='parewx' hidden="{{!isopenimg}}" wx:if="{{article}}">
+        
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+      <view class='dishtext' hidden="{{isopenimg}}" wx:if="{{pattern}}">
+      </view>
+      <view class='dishImg' wx:if="{{article}}">
+        <view class='openImg' bindtap='clickopen'>{{isopenimg?'收起图文详情':'查看图文详情'}}</view>
+      </view>
+
+      <!-- 购买须知start -->
+      <view class='specialWrap'>
+        <view class='special'></view>
+        <text>购买须知</text>
+      </view>
+      <view class='legend'>
+        <view class='legend_one' wx:for="{{legend}}" wx:key="{{index}}">
+          <view class='legend_name'> {{item.name}}</view>
+          <view class='legend_info' wx:for="{{item.info}}" wx:key="{{index}}">·
+            <text>{{item}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 购买须知end -->
+
+      <!-- 商家主页start -->
+      <view class='specialWrap' wx:if="{{shopName}}">
+        <view class='special'></view>
+        <text>{{shopName}}</text>
+        <view class='diningRight shopindex' bindtap="toShopDetail">
+          <text>商家主页</text>
+          <image class='merchant-xiaji' src='/images/icon/home_arrow.png'></image>
+        </view>
+      </view>
+      <view class='parallelismDining' wx:if="{{shopName}}">
+        <view class='diningLeft'>
+          <view class='diningzPlace' catchtap='openmap'>
+            <image class='geography' src='/images/icon/location.png'></image>
+            <text>{{address}}</text>
+          </view>
+        </view>
+        <view class='diningRight1'>
+          <image class='mapphone' catchtap='openmap' src='https://lg-dn28ltjg-1256805295.cos.ap-shanghai.myqcloud.com/map_icon.png'></image>|
+          <image class='mapphone' bindtap="calling" src='https://lg-dn28ltjg-1256805295.cos.ap-shanghai.myqcloud.com/phone_icon.png'></image>
+        </view>
+      </view>
+      <!-- 商家主页end -->
+    </view>
+  </view>
+
+  <!-- 底部tab功能键 -->
+  <view class='function'>
+    <view class='returnHome home' catchtap='returnHomeArrive'>
+      <image class='houselet' src='/images/icon/houselet.png'></image>
+      <text>首页</text>
+    </view>
+
+    <button class='returnHome' bindtap='share' plain="true" data-name="shareBtn" open-type="share">
+      <image class='yellowShare' src='/images/icon/yellowShare.png'></image>
+      <text>分享</text>
+    </button>
+
+    <view class='returnPrice' bindtap='toBuy'>立即购买</view>
+  </view>
+</view>
+
+
+<!-- 规则说明 -->
+<view class="mask" bindtap="understand" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+  <view class='windows_tishi'>———— 规则说明 ————</view>
+  <view class='windows_text'>
+    <text>
+    1.限量秒杀商品均为限量发售，售完即止；\n\n 2.用户需在60分钟内邀请两个新用户注册；若超时，需要重新发起邀请；\n\n 3.支付成功后，三个月内均可进店使用，过期作废；\n\n 4.每次消费仅限使用一张，不可叠加使用；\n\n 5.其他优惠等问题，以门店实际规定为准,购买后不支持退款、不兑现、不找零；\n\n 6.最终解释权归享7平台所有。\n\n\n\n
+</text>
+  </view>
+  <!-- <button class='understand' bindtap="understand">我已知晓此规则</button> -->
+</view>
+
+<!-- 自定义分享图片中 绘制价格   公共方法utils.js/canvasShareImg.js  调用方法canvasShareImg() -->
+<canvas canvas-id="myCanvas" style="width:800px;height:642px;position: fixed;top: 0; left: 999px;"></canvas>

@@ -1,0 +1,384 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f5f5fa;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 80rpx;
+}
+
+.placeholder image {
+  margin-top: 270rpx;
+}
+
+.navbar .item {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+
+.navbar .item.active {
+  color: #3faffd;
+  font-size: 32rpx;
+}
+
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: #3faffd;
+  font-size: 28rpx;
+}
+
+.crabListBox {
+  padding-top: 80rpx;
+  box-sizing: border-box;
+}
+
+.tabone {
+  width: 100%;
+  height: 48rpx;
+  padding: 24rpx 0;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 80rpx;
+  left: 0;
+}
+
+.onetab {
+  width: 112rpx;
+  height: 52rpx;
+  float: left;
+  border-radius: 26px;
+  border: 1px solid #555;
+  color: #555;
+  text-align: center;
+  line-height: 52rpx;
+  font-size: 26rpx;
+}
+
+.actonetab {
+  background: rgba(222, 241, 255, 1);
+  border: 1px solid rgba(63, 175, 253, 1);
+  color: #3faffd;
+}
+
+.crabWrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 96rpx;
+  box-sizing: border-box;
+}
+
+.crabCenter {
+  width: 92%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+
+.crabSingle {
+  width: 336rpx;
+  height: 568rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-top: 20rpx;
+}
+
+.crabSingle:nth-child(2n) {
+  margin-left: 18rpx;
+}
+
+.crabImg {
+  width: 100%;
+  height: 374rpx;
+  border-top-right-radius: 16rpx;
+  border-top-left-radius: 16rpx;
+}
+
+.crabName {
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.crabWrapText {
+  padding: 0rpx 20rpx 0rpx 20rpx;
+}
+
+.crabProduct {
+  margin: 6rpx 0rpx 20rpx 0rpx;
+}
+
+.originalCrabpis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.originalCrabpis text:nth-child(2) {
+  font-size: 20rpx;
+  padding: 0rpx 0rpx;
+  color: #ff4343;
+  border: none;
+  text-decoration: line-through;
+}
+
+.crabProduct text {
+  border: 1px solid #ff4343;
+  border-radius: 24rpx;
+  font-size: 20rpx;
+  padding: 0rpx 14rpx;
+  color: #ff4343;
+}
+
+.crabPrice {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.crabPriceleft {
+  width: 50%;
+  font-size: 30rpx;
+  color: #b1b1b1;
+}
+
+.originalCrab {
+  font-size: 24rpx;
+  color: #808080 !important;
+}
+
+.crabPriceleft text {
+  color: #ff4343;
+}
+
+.crabPriceright {
+  width: 50%;
+  font-size: 20rpx;
+  color: #b1b1b1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.storeImg {
+  width: 100%;
+  height: 420rpx;
+}
+
+.storeWrapCrad {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.storStyle {
+  width: 100%;
+}
+
+.storPprofileWrap {
+  width: 100%;
+  height: 260rpx;
+  position: relative;
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid #f5f5fa;
+}
+
+.storPprofileWrap:nth-child(1) {
+  margin-top: 10rpx;
+}
+
+.storPprofile {
+  width: 100%;
+  height: 134rpx;
+  border-radius: 16rpx;
+}
+
+.bullfrog {
+  width: 100%;
+  height: 260rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.storShade-left {
+  width: 83%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.storShade-right {
+  width: 17%;
+  height: auto;
+}
+
+.storShade-leftHead {
+  width: 198rpx;
+  height: 198rpx;
+  border-radius: 8rpx;
+  margin: 0rpx 30rpx 0rpx 30rpx;
+  border: 1px solid #F5F5FA;
+}
+
+.storsNmae_Text {
+  width: 57%;
+  height: 198rpx;
+}
+.storsNmae_Text1 {
+  line-height: 50rpx;
+}
+.storsNmae_Text2 {
+  line-height: 66rpx;
+}
+
+.storsDishes{
+  border:1px solid rgba(176,176,176,1);
+  border-radius:6rpx;
+  font-size:24rpx;
+  color:rgba(128,128,128,1);
+  padding: 0rpx 8rpx;
+}
+
+.storsDishesWrap{
+  width: 92%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.storLocation {
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+}
+
+.storCooking {
+  font-size: 28rpx;
+  color: rgba(128, 128, 128, 1);
+  padding-left: 14rpx;
+}
+
+.cutOutCooking{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.storsNmae {
+  width: 332rpx;
+  font-size: 34rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.storLocationText {
+  font-size: 28rpx;
+  padding-left: 4rpx;
+  vertical-align: middle;
+}
+
+.storShade-right {
+  display: flex;
+  align-items: center;
+}
+
+.storShade-right button {
+  width: 120rpx;
+  height: 36rpx;
+  color: #191919;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 36rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  border-radius: 24rpx;
+  margin: 2rpx 4rpx;
+}
+
+.storeList {
+  width: 100%;
+  padding: 112rpx 28rpx 32rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.store_item {
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #cfcfcf;
+}
+
+.storeIcon {
+  height: 390rpx;
+  width: 100%;
+}
+
+.storeIcon image {
+  height: 100%;
+  width: 100%;
+}
+
+.storeInfo {
+  padding: 10rpx 32rpx 18rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.gray {
+  color: #808080;
+}
+
+.storeInfo_t {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #191919;
+  padding-top: 4rpx;
+}
+
+.storeInfo_b {
+  width: 620rpx;
+  font-size: 26rpx;
+  padding-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.salepointName {
+  width: 460rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

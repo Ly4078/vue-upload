@@ -1,0 +1,36 @@
+<view>
+  <view class='detailsWarp'>
+    <image class='detailsImg'  wx:if="{{!cfrom && !actId}}" src='https://xqmp4-1256079679.file.myqcloud.com/text_795304398318743860.png'></image>
+    <image class='detailscf' wx:if="{{cfrom}}" src='https://xqmp4-1256079679.file.myqcloud.com/text_822736298892403993.png'></image>
+    <image class='detailscf' wx:if="{{!cfrom && actId}}" src='https://xqmp4-1256079679.file.myqcloud.com/text_844679799616664617.png'></image>
+    
+    <view class='speciesWrap'  wx:if="{{!cfrom}}">
+      <text class='speciesText' wx:if="{{actId}}">{{obj.sell}}元食典劵</text>
+      <text class='speciesText' wx:else>{{obj.inp}}元现金劵</text>
+      <!-- <text class='spaeciescondition'>{{obj.rule}}</text> -->
+    </view>
+    
+  </view>
+  <view class='countersign' wx:if="{{!cfrom && !shidian}}">
+    <view class='countersign_left'>
+      <view>
+        <text class='amount-number'>{{sell}}</text>
+        <text class='amount-text'>元</text>
+        <text class='past-due' wx:if="{{!actId}}">{{orig}}元</text>
+      </view>
+      
+      <view class='countersign-past-due'>
+        <text wx:if="{{actId}}">{{sell}}元食典劵</text>
+        <text wx:else>{{obj.inp}}元现金劵</text>
+        <!-- <text class='discount-number'>{{sell/obj.inp*10}}折</text> -->
+      </view>
+    </view>
+    <view class='countersign-right'>
+      <form bindsubmit="formSubmit" report-submit="true">
+
+    <button formType="submit" class='countersign-right-text'>立即购买</button>
+    </form>
+      <!-- <button class='countersign-right-text'>立即购买</button> -->
+    </view>
+  </view>
+</view>
